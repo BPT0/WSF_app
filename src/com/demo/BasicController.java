@@ -41,7 +41,6 @@ public class BasicController {
     public String read(Map<String, String> param, Map<String, Object> model) {
         int idx = Integer.parseInt(param.get("idx"));
 
-
         MovieDto movie = service.read(idx);
 
         model.put("idx", movie.getIdx());
