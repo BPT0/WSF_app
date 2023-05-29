@@ -44,14 +44,14 @@ public class ClothesController {
 
     @RequestMapping("/updateForm/{idx}")
     public  String updateForm(@PathVariable int idx, Model model) {
-        model.addAttribute("movie", clothService.read(idx));
+        model.addAttribute("cloth", clothService.read(idx));
         return "updateForm";
     }
 
     @RequestMapping("/update")
-    public  String update(ClothDto movie) {
-        clothService.update(movie);
-        return "redirect:/read/" + movie.getIdx();
+    public  String update(ClothDto cloth) {
+        clothService.update(cloth);
+        return "redirect:/read/" + cloth.getIdx();
     }
 
 

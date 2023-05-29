@@ -14,7 +14,8 @@ public class ClothesServiceImpl implements ClothService {
         db.add(new ClothDto(1, "외투", "cloth1.jpg", "항공점퍼"));
         db.add(new ClothDto(2, "외투", "cloth2.jpg", "롱패딩"));
         db.add(new ClothDto(3,  "상의", "cloth3.jpg", "반팔티"));
-        db.add(new ClothDto(4, "상의", "cloth4.jpg", "반팔티"));    }
+        db.add(new ClothDto(4, "상의", "cloth4.jpg", "반팔티"));
+    }
 
     @Override
     public ArrayList<ClothDto> select() {
@@ -47,6 +48,5 @@ public class ClothesServiceImpl implements ClothService {
         temp.setDetail(cloth.getDetail());
         return true;
     }
-
 
 }

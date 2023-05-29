@@ -9,10 +9,10 @@
 상품 데이터 수정
 
 <form action="/update" />
-idx : <input type="text" readonly name="idx"  th:value="${c.idx}"><br/>
-title : <input type="text" name="group" th:value="${c.group}"><br/>
-image : <input type="text" name="image" th:value="${c.image}"> <br/>
-<textarea rows="5" cols="40" name="detail" th:text="${c.detail}"> </textarea><br/>
+idx : <input type="text" readonly name="idx"  th:value="${cloth.idx}"><br/>
+title : <input type="text" name="group" th:value="${cloth.group}"><br/>
+image : <input type="text" name="image" th:value="${cloth.image}"> <br/>
+<textarea rows="5" cols="40" name="detail" th:text="${cloth.detail}"> </textarea><br/>
 <input type="submit" value="수정" />
 </form>
 

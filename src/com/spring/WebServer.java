@@ -12,8 +12,10 @@ public class WebServer {
     private ToyContainer ctx; // 토이컨테이너 객체 선언
     public WebServer(ToyContainer ctx) {
         this.ctx = ctx;
-    }  // 웹서버 클래스에서 토이 컨테이너를 인수로 받는 생성자 가져옴
+    }  // 토이 컨테이너를 인수로 받는 생성자 선언
 
+    // 실행 함수: 예외 클래스를 상속
+    // 포트번호 설정, 소켓 설정, 입출력 버퍼 관리
     public void run() throws Exception {
         int port = 3000; // 포트번호 3000번으로 설정
 
@@ -50,6 +52,9 @@ public class WebServer {
                 if (s.isEmpty()) break;
             }
 
+            // 2. 경로가 / 이외일때 처리
+            // header와 body 구분
+            // 버퍼로 받은 데이터 바이트로 변환해 출력
             try {
                 // web server 라면
                 // 위에서 저장한 filename 의 문자열에 "."의 인덱스가 0보다 같거나 크다면
@@ -81,6 +86,7 @@ public class WebServer {
                 } else {
                     // spring container
                     // 200 정상작동을 나타내도
+                    // 아무 값이 없을경우
                     // text/html으로 컨텐츠 타입을 표시해서 보여주는 header
                     String header = "HTTP/1.0 200 OK\nContent-Type: text/html\r\n\r\n";
                     // body : 컨테이너에서 request(filename) 메소드를 활용해 값을 가져옴
@@ -96,7 +102,8 @@ public class WebServer {
                 // text/html으로 컨텐츠 타입을 표시해서 보여주는 header
                 String header = "HTTP/1.0 500 ERROR\r\nContent-Type: text/html\r\n\n";
                 // 에러페이지를 보여주는 body
-                String body = "<html><h3><p>Error : " + filename + ": " + e.toString() + "</p>" + Arrays.toString(e.getStackTrace()) + "</h3></html>";
+                String body = "<html><h3><p>Error : " + filename + ": " + e.toString() + "</p>"
+                        + Arrays.toString(e.getStackTrace()) + "</h3></html>";
                 os.write(header.toString().getBytes());
                 os.write(body.toString().getBytes());
             } finally {
