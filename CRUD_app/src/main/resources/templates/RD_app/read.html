@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+옷 상세 페이지    <a href="/list">[목록]</a> <br/>
+
+idx : <span th:text="${clothes.idx}" />   <br/>
+<span th:text="${clothes.title}" />   <br/>
+<img th:src="|/${clothes.image}|" width="200" />   <br/>
+<textarea rows="5" cols="40" readonly>[[${clothes.content}]]</textarea><br/>
+
+<a th:href="@{/updateForm/{idx}(idx=${clothes.idx})}">수정</a>
+
+</body>
+</html>
